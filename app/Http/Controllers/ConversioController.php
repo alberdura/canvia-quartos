@@ -61,4 +61,26 @@ class ConversioController extends Controller
     {
         //
     }
+
+    function convertirMoneda(float $cantidad, string $monedaOrigen, string $monedaDestino): float
+{
+    // Si la moneda de origen y destino son iguales devuelvo la cantidad
+    if (strtoupper($monedaOrigen) === strtoupper($monedaDestino)) {
+        return $cantidad;
+    }
+
+    // Obtener el valor de la moneda de origen y destino en USD
+    $valorOrigen = Currency::where('code', strtoupper($monedaOrigen))->value('value');
+    $valorDestino = Currency::where('code', strtoupper($monedaDestino))->value('value');
+
+    // Si no se encuentra alguno de los valores lanzo un error
+    if (!$valorOrigen || !$valorDestino) {
+        throw new Exception("No se encontraron valores");
+    }
+
+    // Calculo la tasa de cambio 
+    $tasa = $valorDestino / $valorOrigen;
+
+    return round($cantidad * $tasa, 2);
+}
 }
