@@ -11,7 +11,7 @@
             <option value="USD">USD</option>
             <option value="EUR">EUR</option>
         </select>
-        
+
         <label for="to_currency">A:</label>
         <select id="to_currency" name="to_currency" required>
             <option value="USD">USD</option>
@@ -23,7 +23,8 @@
 
         <button type="submit">Convertir</button>
     </form>
-    @if (session('result'))
-        <p>Resultado: {{ session('result') }}</p>
+    @dump(get_defined_vars())
+    @if (isset($result))
+        <p>Resultado: {{ $result }}</p>
     @endif
 @endsection

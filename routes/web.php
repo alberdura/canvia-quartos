@@ -9,6 +9,6 @@ Route::get('/', function () {
 
 Route::get('/convert', function () {
     return view('pages.convert');
-})->name('convert');
-
+})->name('convert.index');
+Route::get('/convert/{amount}/{from_currency}/{to_currency}', [CurrencyController::class, 'convertCurrency'])->name('convert.result');
 Route::post('/convert', [CurrencyController::class, 'convert'])->name('convert');
