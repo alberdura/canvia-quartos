@@ -22,7 +22,9 @@
         
     </header>
     <main>
-        @yield('content')
+        @yield('convert')
+        @yield('tableContent')
+        @yield('graphicContent')
     </main>
     <footer>
         <p>&copy; 2024 Cambio de Divisas</p>

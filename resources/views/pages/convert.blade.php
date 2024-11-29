@@ -2,7 +2,7 @@
 
 @section('title', 'Convertidor de Divisas')
 
-@section('content')
+@section('convert')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +16,16 @@
 <body>
  <div class="container py-5">
     <!-- Header -->
+    <header>
+        <nav>
+            <a href="{{ route('home') }}">Inicio</a>
+            <a href="{{ route('convert') }}">Convertir</a>
+            <a href="#table">Taula de conversions</a>
+            <a href="#graphic">Gràfic de les monedes</a>
+        </nav>
+        
+    </header>
+
     <div class="text-center mb-4">
       <h1 class="fw-bold">Currency Converter</h1>
       <p class="text-muted">Check real-time exchange rates and convert currencies instantly.</p>
@@ -61,7 +71,7 @@
 
     <!-- Results Section -->
     <div class="mt-4 text-center">
-      <h4>Converted Amount:</h4>
+      <h4>Import convertit:</h4>
       <p class="display-5 fw-bold text-success">€0.00</p>
     </div>
   </div>
