@@ -12,10 +12,23 @@ class CurrencyController extends Controller
         $to = $request->input('to_currency');
         $amount = $request->input('amount');
 
-        // Ejemplo de lógica de conversión (puedes mejorarlo)
-        $rate = $from === 'USD' && $to === 'EUR' ? 0.85 : 1.18;
-        $result = $amount * $rate;
+        return to_route('convert.result', [
+            'from_currency' => $from,
+            'to_currency' => $to,
+            'amount' => $amount
+        ]);
+    }
 
-        return back()->with('result', $result);
+    public function convertCurrency(float $amount, string $sourceCurrency, string $targetCurrency)
+    {
+        $tasa = 1;
+        $result = round($amount * $tasa, 2);
+
+        return view('pages.convert', [
+            'result' => $result,
+            'from_currency' => $sourceCurrency,
+            'to_currency' => $targetCurrency,
+            'amount' => $amount,
+        ]);
     }
 }

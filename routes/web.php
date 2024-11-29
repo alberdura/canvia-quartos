@@ -9,16 +9,6 @@ use App\Http\Controllers\CurrencyController;
 
 Route::get('/convert', function () {
     return view('pages.convert');
-})->name('convert');
-
-Route::get('/graphic', function () {
-    return view('pages.graphic');
-})->name('graphic');
-
-Route::get('/conversionTable', function () {
-    return view('pages.conversionTable');
-})->name('conversionTable');
-
+})->name('convert.index');
+Route::get('/convert/{amount}/{from_currency}/{to_currency}', [CurrencyController::class, 'convertCurrency'])->name('convert.result');
 Route::post('/convert', [CurrencyController::class, 'convert'])->name('convert');
-Route::post('/conversionTable', [CurrencyController::class, 'conversionTable'])->name('conversionTable');
-Route::post('/graphic', [CurrencyController::class, 'graphic'])->name('graphic');
