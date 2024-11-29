@@ -12,8 +12,6 @@ class CurrencyController extends Controller
         $to = $request->input('to_currency');
         $amount = $request->input('amount');
 
-//        $result = $this->convertCurrency($amount, $from, $to);
-//        return back()->with('result', $result);
         return to_route('convert.result', [
             'from_currency' => $from,
             'to_currency' => $to,
