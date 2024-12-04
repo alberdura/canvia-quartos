@@ -12,17 +12,18 @@
 
     <!-- Currency Converter Card -->
     <div class="card shadow-lg p-4">
-      <form>
+      <form action="{{ route('convert') }}" method="POST">
+          @csrf
         <!-- Amount Input -->
         <div class="mb-3">
           <label for="amount" class="form-label fw-semibold">Quantitat</label>
-          <input type="number" id="amount" class="form-control" placeholder="Enter amount" required>
+          <input name="amount" type="number" id="amount" class="form-control" placeholder="Enter amount" required>
         </div>
 
         <!-- Currency Selector (From) -->
         <div class="mb-3">
           <label for="fromCurrency" class="form-label fw-semibold">De</label>
-          <select id="fromCurrency" class="form-select">
+          <select name="from_currency" id="fromCurrency" class="form-select">
             <option value="USD">USD - US Dollar</option>
             <option value="EUR" selected>EUR - Euro</option>
             <option value="GBP">GBP - British Pound</option>
@@ -33,7 +34,7 @@
         <!-- Currency Selector (To) -->
         <div class="mb-3">
           <label for="toCurrency" class="form-label fw-semibold">A</label>
-          <select id="toCurrency" class="form-select">
+          <select name="to_currency" id="toCurrency" class="form-select">
             <option value="USD">USD - US Dollar</option>
             <option value="EUR">EUR - Euro</option>
             <option value="GBP" selected>GBP - British Pound</option>
