@@ -3,28 +3,7 @@
 @section('title', 'Convertidor de Divisas')
 
 @section('convert')
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <style>
-
-    </style>
-</head>
-<body>
  <div class="container py-5">
-    <!-- Header -->
-    <header>
-        <nav>
-            <a href="{{ route('home') }}">Inicio</a>
-            <a href="{{ route('convert') }}">Convertir</a>
-            <a href="#table">Taula de conversions</a>
-            <a href="#graphic">Gràfic de les monedes</a>
-        </nav>
-
-    </header>
 
     <div class="text-center mb-4">
       <h1 class="fw-bold">Currency Converter</h1>
@@ -85,7 +64,4 @@
 
     </script>
   </div>
-</body>
-</html>
-
 @endsection
