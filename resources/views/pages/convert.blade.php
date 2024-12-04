@@ -61,7 +61,4 @@
 
     </script>
   </div>
-    @if (session('result'))
-        <p>Resultado: {{ session('result') }}</p>
-    @endif
 @endsection
