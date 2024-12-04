@@ -49,11 +49,15 @@
       </form>
     </div>
 
-    <!-- Results Section -->
-    <div class="mt-4 text-center">
-      <h4>Import convertit:</h4>
-      <p class="display-5 fw-bold text-success">€0.00</p>
-    </div>
+     @if(isset($result) and isset($to_currency))
+        <div class="mt-4 text-center">
+          <h4>Import convertit:</h4>
+          <p class="display-5 fw-bold text-success">
+              {{ $result }}
+              {{ $to_currency }}
+          </p>
+        </div>
+     @endif
   </div>
   <div>
     <script src="/resources/js/graphic.js">
