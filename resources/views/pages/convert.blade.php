@@ -52,7 +52,6 @@
     <!-- Results Section -->
     <div class="mt-4 text-center">
       <h4>Import convertit:</h4>
-      <h4>Import convertit:</h4>
       <p class="display-5 fw-bold text-success">€0.00</p>
     </div>
   </div>
