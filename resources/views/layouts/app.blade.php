@@ -21,11 +21,13 @@
         </nav>
         
     </header>
+    <div class="content">
     <main>
         @yield('convert')
         @yield('tableContent')
         @yield('graphicContent')
     </main>
+    </div>
     <footer>
         <p>&copy; 2024 Cambio de Divisas</p>
     </footer>
