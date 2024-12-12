@@ -12,15 +12,13 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="{{ route('home') }}">Inicio</a>
-            <a href="{{ route('convert') }}">Convertir</a>
-            <a href="#table">Taula de conversions</a>
-            <a href="#graphic">Gràfic de les monedes</a>
+    <header >
+        <navc class="navbar navbar-dark bg-primary text-center" >
+            <a class="navbar-brand" href="#table">Taula de conversions</a>
+            <a class="navbar-brand" href="#graphic">Gràfic de les monedes</a>
         </nav>
-        
     </header>
+
     <div class="content">
     <main>
         @yield('convert')
@@ -29,7 +27,7 @@
     </main>
     </div>
     <footer>
-        <p>&copy; 2024 Cambio de Divisas</p>
+        <p>&copy; 2024 Canvi de divises</p>
     </footer>
 </body>
 </html>

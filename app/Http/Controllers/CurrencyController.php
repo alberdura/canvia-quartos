@@ -31,6 +31,7 @@ class CurrencyController extends Controller
             'from_currency' => $sourceCurrency,
             'to_currency' => $targetCurrency,
             'amount' => $amount,
+            'tasa' => $tasa,
         ]);
     }
 

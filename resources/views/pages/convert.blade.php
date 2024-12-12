@@ -6,8 +6,8 @@
  <div class="container py-5">
 
     <div class="text-center mb-4">
-      <h1 class="fw-bold">Currency Converter</h1>
-      <p class="text-muted">Check real-time exchange rates and convert currencies instantly.</p>
+      <h1 class="fw-bold">Convertidor de moneda</h1>
+      <p class="text-muted">Comproveu els tipus de canvi en temps real i convertiu monedes a l'instant.</p>
     </div>
 
     <!-- Currency Converter Card -->
@@ -52,7 +52,7 @@
      @if(isset($result) and isset($to_currency))
         <div class="mt-4 text-center">
           <h4>Import convertit:</h4>
-          <p class="display-5 fw-bold text-success">
+          <p class="display-5 fw-bold text-primary">
               {{ $result }}
               {{ $to_currency }}
           </p>
@@ -65,3 +65,7 @@
     </script>
   </div>
 @endsection
+
+@if(isset($result) and isset($to_currency))
+  @include('pages.currencyTable')
+@endif

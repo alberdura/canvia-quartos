@@ -19,6 +19,7 @@ html, body {
 .content{
     flex: 1;
 }
+
 footer{
     background-color: #363a4f;
     color: #fff;
@@ -28,3 +29,4 @@ footer{
     margin-bottom: 0px;
 
 }
+
