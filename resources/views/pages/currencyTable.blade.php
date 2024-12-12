@@ -6,15 +6,15 @@
       <h1 class="fw-bold">Convertir {{ $from_currency }} a {{ $to_currency }}</h1>
     </div>
     <!-- <h1>Convertir {{ $from_currency }} a {{ $to_currency }}</h1> -->
-  
+
     <div class="card shadow-lg p-4">
-      
+
       <table class="table table-striped">
         <tr>
           <th class="bg-primary fw-bold text-light">{{ $from_currency }}</th>
           <th class="bg-primary fw-bold text-light">{{ $to_currency }}</th>
         </tr>
-    
+
         @for ($i = 5; $i <= 100; $i+=5)
           <tr>
             <td>
@@ -27,7 +27,5 @@
         @endfor
       </table>
     </div>
-
-
   </div>
 @endsection
