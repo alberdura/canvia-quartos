@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('symbol_native');
             $table->integer('decimal_digits');
             $table->integer('rounding');
-            $table->string('code', 3); // Usamos un código corto (3 caracteres)
+            $table->string('code', 3)->unique();
             $table->string('name_plural');
             $table->string('type');
-            $table->json('countries'); // Esto almacena los países como un array JSON
+            $table->json('countries');
             $table->double('value')->default(0.0);
             $table->timestamps();
         });

@@ -17,26 +17,31 @@ class ApiDataSeeder extends Seeder
      */
     public function run(): void
     {
-        $response = Http::get(self::API_URL);
-        if ($response->successful()) {
-            $data = $response->json();
-
-            foreach ($data as $currency) {
-                Currency::create([
-                    'symbol' => $currency['symbol'],
-                    'name' => $currency['name'],
-                    'symbol_native' => $currency['symbol_native'],
-                    'decimal_digits' => $currency['decimal_digits'],
-                    'rounding' => $currency['rounding'],
-                    'code' => $currency['code'],
-                    'name_plural' => $currency['name_plural'],
-                    'type' => $currency['type'],
-                    'countries' => json_encode($currency['countries']),
-                ]);
+        try {
+            $response = Http::get(self::API_URL);
+            if ($response->successful()) {
+                $data = $response->json();
+                $currencies = $data['data'] ?? [];
+                foreach ($currencies as $currency) {
+                    if (isset($currency['symbol'], $currency['name'], $currency['code'])) {
+                        Currency::create([
+                            'symbol' => $currency['symbol'],
+                            'name' => $currency['name'],
+                            'symbol_native' => $currency['symbol_native'] ?? '',
+                            'decimal_digits' => $currency['decimal_digits'] ?? 0,
+                            'rounding' => $currency['rounding'] ?? 0,
+                            'code' => $currency['code'],
+                            'name_plural' => $currency['name_plural'] ?? '',
+                            'type' => $currency['type'] ?? 'unknown',
+                            'countries' => json_encode($currency['countries'] ?? []),
+                        ]);
+                    }
+                }
+            } else {
+                $this->command->error('La API ha retornat un estat inesperat.');
             }
-        } else {
-            // Si la API falla, puedes manejar el error aquí
-            $this->command->error('Error al obtener datos de la API');
+        } catch (\Exception $e) {
+            $this->command->error('Error en obtenir les dades de l\'API: ' . $e->getMessage());
         }
     }
 }
